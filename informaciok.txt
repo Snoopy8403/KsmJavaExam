@@ -1,0 +1,90 @@
+Csináld meg:
+
+Addressnál a findById végpontnál exception dobása ha nem létezik az ID!
+
+
+Végpontok:
+
+Person:
+
+Create -> Nincs megkötés, a cím és a kontakt sem kötelező mező!
+    POST http://localhost:8080/person/create
+    Példa request:
+    {
+      "name": "Kovács Anna",
+      "addresses": [
+        {
+          "addressType": "ADDRESS_TYPE_NORMAL",
+          "city": "Budapest",
+          "zipcode": "1011",
+          "line1": "Fő utca 1"
+        }
+      ],
+      "contacts": [
+        {
+          "contactType": "CONTACT_TYPE_EMAIL",
+          "email": "anna.kovacs@example.com",
+          "telephone": null,
+          "mobile": null
+        }
+      ]
+    }
+
+FindAll ->
+FindById ->
+Update ->
+Delete ->
+
+Address:
+
+Create -> Csak akkor lehet létrehozni, ha már van Person a táblában amihez lehet kapcsolni.
+    POST http://localhost:8080/address/create/{person_id}
+
+    Példa request JSon:
+    {
+      "personId": 1,
+      "addressType": "ADDRESS_TYPE_TEMPORARY",
+      "city": "Miskolc",
+      "zipcode": "4024",
+      "line1": "Kossuth tér 5"
+    }
+
+    Hibakezelés -
+        -Hibás, nem létező person_id esetén RuntimeException: Person not found
+        -Minden AddressType Enumban található típusból csak 1 lehet az adott person-nak. RuntimeException: Az adott személynek már van ilyen típusú címe: ADDRESS_TYPE_TEMPORARY
+
+
+
+FindAll -> Mindent visszaad ami az Address táblában van.
+    GET http://localhost:8080/address/findAll
+
+    Példa response:
+    [
+       {
+                   "id": 1,
+                   "addressType": "ADDRESS_TYPE_NORMAL",
+                   "city": "Budapest",
+                   "zipcode": "1011",
+                   "line1": "Fő utca 1"
+       },
+       {
+                   "id": 2,
+                   "addressType": "ADDRESS_TYPE_TEMPORARY",
+                   "city": "Debrecen",
+                   "zipcode": "4024",
+                   "line1": "Kossuth tér 5"
+       }
+    ]
+
+FindById ->
+Update ->
+Delete ->
+
+
+Contact
+
+Create ->
+FindAll->
+FindById ->
+Update ->
+Delete ->
