@@ -63,10 +63,10 @@ public class TestDataLoader implements CommandLineRunner {
         person2.setAddresses(Arrays.asList(addr2, addr3));
         person2.setContacts(Arrays.asList(contact2, contact3, contact4));
 
-        // Mentés a repository-ba
+        // Adatok létrehozása
         personRepository.saveAll(List.of(person1, person2));
 
-        System.out.println("Inicializált 2 személy adat!");
+        System.out.println("Tesztadatok létrehozva!");
 
     }
 }

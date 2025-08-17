@@ -1,7 +1,6 @@
 package com.ksmJavaExam.JavaExam.Controllers;
 
 import com.ksmJavaExam.JavaExam.Models.Contact;
-import com.ksmJavaExam.JavaExam.Models.ContactType;
 import com.ksmJavaExam.JavaExam.Models.Person;
 import com.ksmJavaExam.JavaExam.Repositorys.ContactRepository;
 import com.ksmJavaExam.JavaExam.Repositorys.PersonRepository;
@@ -23,7 +22,7 @@ public class ContactController {
     }
 
     // GET - minden contact
-    @GetMapping("/findAll")
+    @GetMapping("")
     public List<Contact> findAll() {
         return contactRepository.findAll();
     }
@@ -58,24 +57,24 @@ public class ContactController {
     @PutMapping("/{id}")
     public ResponseEntity<Contact> update(@PathVariable Long id, @RequestBody Contact updatedContact) {
         return contactRepository.findById(id)
-                .map(existing -> {
-                    existing.setContactType(updatedContact.getContactType());
-                    existing.setEmail(updatedContact.getEmail());
-                    existing.setTelephone(updatedContact.getTelephone());
-                    existing.setMobile(updatedContact.getMobile());
-                    return ResponseEntity.ok(contactRepository.save(existing));
+                .map(data -> {
+                    data.setContactType(updatedContact.getContactType());
+                    data.setEmail(updatedContact.getEmail());
+                    data.setTelephone(updatedContact.getTelephone());
+                    data.setMobile(updatedContact.getMobile());
+                    return ResponseEntity.ok(contactRepository.save(data));
                 })
                 .orElse(ResponseEntity.notFound().build());
     }
 
-/*    // DELETE - contact törlése
+    // DELETE - contact törlése
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> delete(@PathVariable Long id) {
+    public ResponseEntity<Object> delete(@PathVariable Long id) {
         return contactRepository.findById(id)
                 .map(contact -> {
                     contactRepository.delete(contact);
                     return ResponseEntity.noContent().build();
                 })
                 .orElse(ResponseEntity.notFound().build());
-    }*/
+    }
 }

@@ -1,0 +1,578 @@
+{
+  "version": 6,
+  "entities": [
+    {
+      "entity": {
+        "type": "Project",
+        "id": "6efcaec2-0912-4fc1-905b-c8f59a061183",
+        "name": "JavaExam"
+      },
+      "children": [
+        {
+          "entity": {
+            "type": "Service",
+            "id": "a2041e70-dbca-4f78-8ea5-bcad2fa01444",
+            "name": "Address"
+          },
+          "children": [
+            {
+              "entity": {
+                "type": "Request",
+                "method": {
+                  "requestBody": true,
+                  "link": "http://tools.ietf.org/html/rfc7231#section-4.3.3",
+                  "name": "POST"
+                },
+                "body": {
+                  "formBody": {
+                    "overrideContentType": true,
+                    "encoding": "application/x-www-form-urlencoded",
+                    "items": []
+                  },
+                  "bodyType": "Text",
+                  "textBody": "{\n  \"personId\": 1,\n  \"addressType\": \"ADDRESS_TYPE_TEMPORARY\",\n  \"city\": \"Miskolc\",\n  \"zipcode\": \"4024\",\n  \"line1\": \"Kossuth tér 5\"\n}"
+                },
+                "uri": {
+                  "query": {
+                    "delimiter": "&",
+                    "items": []
+                  },
+                  "scheme": {
+                    "name": "http",
+                    "version": "V11"
+                  },
+                  "host": "localhost:8080",
+                  "path": "/address/create/3"
+                },
+                "id": "5a982f48-3288-42f7-8a42-939280ba147e",
+                "name": "AddressCreate",
+                "headers": [
+                  {
+                    "enabled": true,
+                    "name": "Content-Type",
+                    "value": "application/json"
+                  }
+                ]
+              }
+            },
+            {
+              "entity": {
+                "type": "Request",
+                "method": {
+                  "link": "http://tools.ietf.org/html/rfc7231#section-4.3.5",
+                  "name": "DELETE"
+                },
+                "body": {
+                  "formBody": {
+                    "overrideContentType": true,
+                    "encoding": "application/x-www-form-urlencoded",
+                    "items": []
+                  },
+                  "bodyType": "Text",
+                  "textBody": "{\n  \"personId\": 1,\n  \"addressType\": \"ADDRESS_TYPE_TEMPORARY\",\n  \"city\": \"Tata\",\n  \"zipcode\": \"4024\",\n  \"line1\": \"Kossuth tér 5\"\n}"
+                },
+                "uri": {
+                  "query": {
+                    "delimiter": "&",
+                    "items": []
+                  },
+                  "scheme": {
+                    "name": "http",
+                    "version": "V11"
+                  },
+                  "host": "localhost:8080",
+                  "path": "/address/1"
+                },
+                "id": "9e8bd05f-38c5-4bb4-b00a-ea0f2f5ca9b1",
+                "name": "AddressDelete",
+                "headers": []
+              }
+            },
+            {
+              "entity": {
+                "type": "Request",
+                "method": {
+                  "link": "http://tools.ietf.org/html/rfc7231#section-4.3.1",
+                  "name": "GET"
+                },
+                "body": {
+                  "formBody": {
+                    "overrideContentType": true,
+                    "encoding": "application/x-www-form-urlencoded",
+                    "items": []
+                  },
+                  "bodyType": "Text",
+                  "textBody": "{\n  \"personId\": 1,\n  \"addressType\": \"ADDRESS_TYPE_TEMPORARY\",\n  \"city\": \"Miskolc\",\n  \"zipcode\": \"4024\",\n  \"line1\": \"Kossuth tér 5\"\n}"
+                },
+                "uri": {
+                  "query": {
+                    "delimiter": "&",
+                    "items": []
+                  },
+                  "scheme": {
+                    "name": "http",
+                    "version": "V11"
+                  },
+                  "host": "localhost:8080",
+                  "path": "/address"
+                },
+                "id": "2fb9a08b-5ac1-4b41-9baa-0e6c97d197dd",
+                "name": "AddressFindAll",
+                "headers": []
+              }
+            },
+            {
+              "entity": {
+                "type": "Request",
+                "method": {
+                  "link": "http://tools.ietf.org/html/rfc7231#section-4.3.1",
+                  "name": "GET"
+                },
+                "body": {
+                  "formBody": {
+                    "overrideContentType": true,
+                    "encoding": "application/x-www-form-urlencoded",
+                    "items": []
+                  },
+                  "bodyType": "Text",
+                  "textBody": "{\n  \"personId\": 1,\n  \"addressType\": \"ADDRESS_TYPE_TEMPORARY\",\n  \"city\": \"Miskolc\",\n  \"zipcode\": \"4024\",\n  \"line1\": \"Kossuth tér 5\"\n}"
+                },
+                "uri": {
+                  "query": {
+                    "delimiter": "&",
+                    "items": []
+                  },
+                  "scheme": {
+                    "name": "http",
+                    "version": "V11"
+                  },
+                  "host": "localhost:8080",
+                  "path": "/address/2"
+                },
+                "id": "de2dca5a-199c-4d8c-8f0e-d02cc2ded0f3",
+                "name": "AddressFindById",
+                "headers": []
+              }
+            },
+            {
+              "entity": {
+                "type": "Request",
+                "method": {
+                  "requestBody": true,
+                  "link": "http://tools.ietf.org/html/rfc7231#section-4.3.4",
+                  "name": "PUT"
+                },
+                "body": {
+                  "formBody": {
+                    "overrideContentType": true,
+                    "encoding": "application/x-www-form-urlencoded",
+                    "items": []
+                  },
+                  "bodyType": "Text",
+                  "textBody": "{\n  \"personId\": 1,\n  \"addressType\": \"ADDRESS_TYPE_TEMPORARY\",\n  \"city\": \"Tata\",\n  \"zipcode\": \"4024\",\n  \"line1\": \"Kossuth tér 5\"\n}"
+                },
+                "uri": {
+                  "query": {
+                    "delimiter": "&",
+                    "items": []
+                  },
+                  "scheme": {
+                    "name": "http",
+                    "version": "V11"
+                  },
+                  "host": "localhost:8080",
+                  "path": "/address/1"
+                },
+                "id": "fdd1cba5-2475-4b04-8444-dbe4ac911588",
+                "name": "AddressUpdate",
+                "headers": [
+                  {
+                    "enabled": true,
+                    "name": "Content-Type",
+                    "value": "application/json"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "entity": {
+            "type": "Service",
+            "id": "4ee07144-d2a5-4966-ae89-fb7d5a23a20d",
+            "name": "Contact"
+          },
+          "children": [
+            {
+              "entity": {
+                "type": "Request",
+                "method": {
+                  "requestBody": true,
+                  "link": "http://tools.ietf.org/html/rfc7231#section-4.3.3",
+                  "name": "POST"
+                },
+                "body": {
+                  "formBody": {
+                    "overrideContentType": true,
+                    "encoding": "application/x-www-form-urlencoded",
+                    "items": []
+                  },
+                  "bodyType": "Text",
+                  "textBody": "{\n\"personId\": 1,\n\"contactType\": \"CONTACT_TYPE_TELEPHONE\",\n\"email\": null,\n\"telephone\": \"+3615361121\",\n\"mobile\": null\n}"
+                },
+                "uri": {
+                  "query": {
+                    "delimiter": "&",
+                    "items": []
+                  },
+                  "scheme": {
+                    "name": "http",
+                    "version": "V11"
+                  },
+                  "host": "localhost:8080",
+                  "path": "/contact/create/1"
+                },
+                "id": "a6fdd913-24e5-4414-9ec2-fed2c0c4ff86",
+                "name": "ContactCreate",
+                "headers": [
+                  {
+                    "enabled": true,
+                    "name": "Content-Type",
+                    "value": "application/json"
+                  }
+                ]
+              }
+            },
+            {
+              "entity": {
+                "type": "Request",
+                "method": {
+                  "link": "http://tools.ietf.org/html/rfc7231#section-4.3.5",
+                  "name": "DELETE"
+                },
+                "body": {
+                  "formBody": {
+                    "overrideContentType": true,
+                    "encoding": "application/x-www-form-urlencoded",
+                    "items": []
+                  },
+                  "bodyType": "Text",
+                  "textBody": "{\n  \"personId\": 1,\n  \"addressType\": \"ADDRESS_TYPE_TEMPORARY\",\n  \"city\": \"Tata\",\n  \"zipcode\": \"4024\",\n  \"line1\": \"Kossuth tér 5\"\n}"
+                },
+                "uri": {
+                  "query": {
+                    "delimiter": "&",
+                    "items": []
+                  },
+                  "scheme": {
+                    "name": "http",
+                    "version": "V11"
+                  },
+                  "host": "localhost:8080",
+                  "path": "/contact/5"
+                },
+                "id": "8b6e946f-7bb5-4126-850a-d6da3af874be",
+                "name": "ContactDelete",
+                "headers": []
+              }
+            },
+            {
+              "entity": {
+                "type": "Request",
+                "method": {
+                  "link": "http://tools.ietf.org/html/rfc7231#section-4.3.1",
+                  "name": "GET"
+                },
+                "body": {
+                  "formBody": {
+                    "overrideContentType": true,
+                    "encoding": "application/x-www-form-urlencoded",
+                    "items": []
+                  },
+                  "bodyType": "Text",
+                  "textBody": "{\n  \"personId\": 1,\n  \"addressType\": \"ADDRESS_TYPE_TEMPORARY\",\n  \"city\": \"Miskolc\",\n  \"zipcode\": \"4024\",\n  \"line1\": \"Kossuth tér 5\"\n}"
+                },
+                "uri": {
+                  "query": {
+                    "delimiter": "&",
+                    "items": []
+                  },
+                  "scheme": {
+                    "name": "http",
+                    "version": "V11"
+                  },
+                  "host": "localhost:8080",
+                  "path": "/contact"
+                },
+                "id": "27b07202-ef7d-49a2-9efd-141cc6a7badb",
+                "name": "ContactFindAll",
+                "headers": []
+              }
+            },
+            {
+              "entity": {
+                "type": "Request",
+                "method": {
+                  "link": "http://tools.ietf.org/html/rfc7231#section-4.3.1",
+                  "name": "GET"
+                },
+                "body": {
+                  "formBody": {
+                    "overrideContentType": true,
+                    "encoding": "application/x-www-form-urlencoded",
+                    "items": []
+                  },
+                  "bodyType": "Text",
+                  "textBody": "{\n  \"personId\": 1,\n  \"addressType\": \"ADDRESS_TYPE_TEMPORARY\",\n  \"city\": \"Tata\",\n  \"zipcode\": \"4024\",\n  \"line1\": \"Kossuth tér 5\"\n}"
+                },
+                "uri": {
+                  "query": {
+                    "delimiter": "&",
+                    "items": []
+                  },
+                  "scheme": {
+                    "name": "http",
+                    "version": "V11"
+                  },
+                  "host": "localhost:8080",
+                  "path": "/contact/3"
+                },
+                "id": "aa0aae5d-c031-4e36-a266-658851e3561f",
+                "name": "ContactFindById",
+                "headers": []
+              }
+            },
+            {
+              "entity": {
+                "type": "Request",
+                "method": {
+                  "requestBody": true,
+                  "link": "http://tools.ietf.org/html/rfc7231#section-4.3.4",
+                  "name": "PUT"
+                },
+                "body": {
+                  "formBody": {
+                    "overrideContentType": true,
+                    "encoding": "application/x-www-form-urlencoded",
+                    "items": []
+                  },
+                  "bodyType": "Text",
+                  "textBody": "{\n\"contactType\": \"CONTACT_TYPE_TELEPHONE\",\n\"email\": null,\n\"telephone\": \"+360606060\",\n\"mobile\": null\n}"
+                },
+                "uri": {
+                  "query": {
+                    "delimiter": "&",
+                    "items": []
+                  },
+                  "scheme": {
+                    "name": "http",
+                    "version": "V11"
+                  },
+                  "host": "localhost:8080",
+                  "path": "/contact/5"
+                },
+                "id": "0bd44f0b-d942-4867-b0c9-71f217153bfd",
+                "name": "ContactUpdate",
+                "headers": [
+                  {
+                    "enabled": true,
+                    "name": "Content-Type",
+                    "value": "application/json"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "entity": {
+            "type": "Service",
+            "id": "72a92bea-a1c1-438e-bf8f-6fce0393cdd6",
+            "name": "Person"
+          },
+          "children": [
+            {
+              "entity": {
+                "type": "Request",
+                "method": {
+                  "requestBody": true,
+                  "link": "http://tools.ietf.org/html/rfc7231#section-4.3.3",
+                  "name": "POST"
+                },
+                "body": {
+                  "formBody": {
+                    "overrideContentType": true,
+                    "encoding": "application/x-www-form-urlencoded",
+                    "items": []
+                  },
+                  "bodyType": "Text",
+                  "textBody": "{\n  \"name\": \"Kovács Anna\",\n  \"addresses\": [\n    {\n      \"addressType\": \"ADDRESS_TYPE_NORMAL\",\n      \"city\": \"Budapest\",\n      \"zipcode\": \"1011\",\n      \"line1\": \"Fő utca 1\"\n    }\n  ],\n  \"contacts\": [\n    {\n      \"contactType\": \"CONTACT_TYPE_EMAIL\",\n      \"email\": \"anna.kovacs@example.com\",\n      \"telephone\": null,\n      \"mobile\": null\n    }\n  ]\n}"
+                },
+                "uri": {
+                  "query": {
+                    "delimiter": "&",
+                    "items": []
+                  },
+                  "scheme": {
+                    "name": "http",
+                    "version": "V11"
+                  },
+                  "host": "localhost:8080",
+                  "path": "/person/create"
+                },
+                "id": "ff823591-3d5d-48e6-b3be-4f618f3cfbf4",
+                "name": "PersonCreate",
+                "headers": [
+                  {
+                    "enabled": true,
+                    "name": "Content-Type",
+                    "value": "application/json"
+                  }
+                ]
+              }
+            },
+            {
+              "entity": {
+                "type": "Request",
+                "method": {
+                  "link": "http://tools.ietf.org/html/rfc7231#section-4.3.5",
+                  "name": "DELETE"
+                },
+                "body": {
+                  "formBody": {
+                    "overrideContentType": true,
+                    "encoding": "application/x-www-form-urlencoded",
+                    "items": []
+                  },
+                  "bodyType": "Text",
+                  "textBody": "{\n  \"name\": \"Sajnos Mégsem\"\n}"
+                },
+                "uri": {
+                  "query": {
+                    "delimiter": "&",
+                    "items": []
+                  },
+                  "scheme": {
+                    "name": "http",
+                    "version": "V11"
+                  },
+                  "host": "localhost:8080",
+                  "path": "/person/3"
+                },
+                "id": "71e072ab-ec1f-4420-9696-f6a7b22b63fe",
+                "name": "PersonDelete",
+                "headers": []
+              }
+            },
+            {
+              "entity": {
+                "type": "Request",
+                "method": {
+                  "link": "http://tools.ietf.org/html/rfc7231#section-4.3.1",
+                  "name": "GET"
+                },
+                "body": {
+                  "formBody": {
+                    "overrideContentType": true,
+                    "encoding": "application/x-www-form-urlencoded",
+                    "items": []
+                  },
+                  "bodyType": "Text",
+                  "textBody": "{\n  \"name\": \"Kovács Anna\",\n  \"addresses\": [\n    {\n      \"addressType\": \"ADDRESS_TYPE_NORMAL\",\n      \"city\": \"Budapest\",\n      \"zipcode\": \"1011\",\n      \"line1\": \"Fő utca 1\"\n    }\n  ],\n  \"contacts\": [\n    {\n      \"contactType\": \"CONTACT_TYPE_EMAIL\",\n      \"email\": \"anna.kovacs@example.com\",\n      \"telephone\": null,\n      \"mobile\": null\n    }\n  ]\n}"
+                },
+                "uri": {
+                  "query": {
+                    "delimiter": "&",
+                    "items": []
+                  },
+                  "scheme": {
+                    "name": "http",
+                    "version": "V11"
+                  },
+                  "host": "localhost:8080",
+                  "path": "/person"
+                },
+                "id": "a5b87a31-8c1a-4f7e-af6d-0b2c31278d1e",
+                "name": "PersonFindAll",
+                "headers": []
+              }
+            },
+            {
+              "entity": {
+                "type": "Request",
+                "method": {
+                  "link": "http://tools.ietf.org/html/rfc7231#section-4.3.1",
+                  "name": "GET"
+                },
+                "body": {
+                  "formBody": {
+                    "overrideContentType": true,
+                    "encoding": "application/x-www-form-urlencoded",
+                    "items": []
+                  },
+                  "bodyType": "Text",
+                  "textBody": "{\n  \"name\": \"Sajnos Péter\",\n  \"addresses\": [],\n  \"contacts\": []\n}"
+                },
+                "uri": {
+                  "query": {
+                    "delimiter": "&",
+                    "items": []
+                  },
+                  "scheme": {
+                    "name": "http",
+                    "version": "V11"
+                  },
+                  "host": "localhost:8080",
+                  "path": "/person/3"
+                },
+                "id": "dfa40282-56f2-4601-823c-c842adc8f15e",
+                "name": "PersonFindById",
+                "headers": []
+              }
+            },
+            {
+              "entity": {
+                "type": "Request",
+                "method": {
+                  "requestBody": true,
+                  "link": "http://tools.ietf.org/html/rfc7231#section-4.3.4",
+                  "name": "PUT"
+                },
+                "body": {
+                  "formBody": {
+                    "overrideContentType": true,
+                    "encoding": "application/x-www-form-urlencoded",
+                    "items": []
+                  },
+                  "bodyType": "Text",
+                  "textBody": "{\n  \"name\": \"Halacsi Béla\"\n}"
+                },
+                "uri": {
+                  "query": {
+                    "delimiter": "&",
+                    "items": []
+                  },
+                  "scheme": {
+                    "name": "http",
+                    "version": "V11"
+                  },
+                  "host": "localhost:8080",
+                  "path": "/person/1"
+                },
+                "id": "bc33787f-7e87-40b1-86f6-b176952292fa",
+                "name": "PersonUpdate",
+                "headers": [
+                  {
+                    "enabled": true,
+                    "name": "Content-Type",
+                    "value": "application/json"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

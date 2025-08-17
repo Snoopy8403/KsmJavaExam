@@ -18,7 +18,7 @@ public class PersonController {
     }
 
     // GET - minden személy
-    @GetMapping("/findAll")
+    @GetMapping("")
     public List<Person> findAll() {
         return personRepository.findAll();
     }
@@ -41,23 +41,23 @@ public class PersonController {
     @PutMapping("/{id}")
     public ResponseEntity<Person> update(@PathVariable Long id, @RequestBody Person updatedPerson) {
         return personRepository.findById(id)
-                .map(existing -> {
-                    existing.setName(updatedPerson.getName());
-                    existing.setAddresses(updatedPerson.getAddresses());
-                    existing.setContacts(updatedPerson.getContacts());
-                    return ResponseEntity.ok(personRepository.save(existing));
+                .map(data -> {
+                    data.setName(updatedPerson.getName());
+                    //data.setAddresses(updatedPerson.getAddresses());
+                    //data.setContacts(updatedPerson.getContacts());
+                    return ResponseEntity.ok(personRepository.save(data));
                 })
                 .orElse(ResponseEntity.notFound().build());
     }
 
     // DELETE - személy törlése
-  /*  @DeleteMapping("/{id}")
-    public ResponseEntity<Void> delete(@PathVariable Long id) {
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Object> delete(@PathVariable Long id) {
         return personRepository.findById(id)
                 .map(person -> {
                     personRepository.delete(person);
                     return ResponseEntity.noContent().build();
                 })
                 .orElse(ResponseEntity.notFound().build());
-    }*/
+    }
 }

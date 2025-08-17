@@ -1,7 +1,6 @@
 package com.ksmJavaExam.JavaExam.Controllers;
 
 import com.ksmJavaExam.JavaExam.Models.Address;
-import com.ksmJavaExam.JavaExam.Models.AddressType;
 import com.ksmJavaExam.JavaExam.Models.Person;
 import com.ksmJavaExam.JavaExam.Repositorys.AddressRepository;
 import com.ksmJavaExam.JavaExam.Repositorys.PersonRepository;
@@ -23,13 +22,13 @@ public class AddressController {
     }
 
     // GET - minden address
-    @GetMapping("/findAll")
+    @GetMapping("")
     public List<Address> findAll() {
         return addressRepository.findAll();
     }
 
     // GET - egy adott address
-    @GetMapping("/findById/{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<Address> findById(@PathVariable Long id) {
         return addressRepository.findById(id)
                 .map(ResponseEntity::ok)
@@ -58,24 +57,24 @@ public class AddressController {
     @PutMapping("/{id}")
     public ResponseEntity<Address> update(@PathVariable Long id, @RequestBody Address updatedAddress) {
         return addressRepository.findById(id)
-                .map(existing -> {
-                    existing.setAddressType(updatedAddress.getAddressType());
-                    existing.setCity(updatedAddress.getCity());
-                    existing.setZipcode(updatedAddress.getZipcode());
-                    existing.setLine1(updatedAddress.getLine1());
-                    return ResponseEntity.ok(addressRepository.save(existing));
+                .map(data -> {
+                    data.setAddressType(updatedAddress.getAddressType());
+                    data.setCity(updatedAddress.getCity());
+                    data.setZipcode(updatedAddress.getZipcode());
+                    data.setLine1(updatedAddress.getLine1());
+                    return ResponseEntity.ok(addressRepository.save(data));
                 })
                 .orElse(ResponseEntity.notFound().build());
     }
 
-/*    // DELETE - address törlése
+    // DELETE - address törlése
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> delete(@PathVariable Long id) {
+    public ResponseEntity<Object> delete(@PathVariable Long id) {
         return addressRepository.findById(id)
                 .map(address -> {
                     addressRepository.delete(address);
                     return ResponseEntity.noContent().build();
                 })
                 .orElse(ResponseEntity.notFound().build());
-    }*/
+    }
 }
